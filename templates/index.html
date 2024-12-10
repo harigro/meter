@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Meter</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="header">
+                <input type="text" class="angka" name="" id="">
+                <button type="button" class="tombol">Tekan</button>
+            </div>
+            <div class="container-result">
+                <div class="box-result">
+                    <input type="text" placeholder="Km" class="km result" readonly>
+                    <input type="text" placeholder="Hm" class="hm result" readonly>
+                    <input type="text" placeholder="Dam" class="dam result" readonly>
+                    <input type="text" placeholder="M" class="m result" readonly>
+                    <input type="text" placeholder="Dm" class="dm result" readonly>
+                    <input type="text" placeholder="Cm" class="cm result" readonly>
+                    <input type="text" placeholder="Mm" class="mm result" readonly>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

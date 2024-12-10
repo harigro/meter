@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: rgba(209, 223, 223, 0.889);
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: rgba(185, 209, 209, 0.605);
+    box-shadow: 0 4px 8px rgba(103, 49, 49, 0.1);
+    flex-basis: 800px;
+    height: 510px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(163, 154, 154);
+}
+
+button {
+    padding: 10px 20px; 
+    text-align: center;
+    width: 22%;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid rgb(237, 234, 234);
+    font-size: 15px;
+    font-weight: 700;
+    background-color: rgba(77, 208, 77, 0.547);
+    color: rgb(22, 22, 21);
+}
+
+button:hover {
+    background-color: rgba(76, 184, 76, 0.382);
+}
+button:active {
+    background-color: rgba(15, 17, 15, 0.663);
+    color: white;
+}
+
+input.angka {
+    width: 74%;
+    margin-right: 20px;
+    padding: 10px 15px;
+    outline: none;
+    border-radius: 8px;
+    border: 2px solid rgb(12, 12, 12);
+    background-color: rgba(235, 239, 243, 0.895);
+    font-size: 15px;
+}
+
+.container-result {
+    margin-top: 20px;
+}
+
+.result {
+    padding: 10px 15px;
+    outline: none;
+    border: 2px solid rgb(12, 12, 12);
+    border-radius: 8px;
+    background-color: rgba(235, 239, 243, 0.895);
+    background-color: rgba(235, 239, 243, 0.895);
+    font-size: 15px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.km {
+    position: relative;
+    left: 60px;
+}
+
+.hm {
+    position: relative;
+    left: 120px;
+}
+
+.dam {
+    position: relative;
+    left: 180px;
+}
+
+.m {
+    position: relative;
+    left: 240px;
+}
+
+.dm {
+    position: relative;
+    left: 300px;
+}
+
+.cm {
+    position: relative;
+    left: 360px;
+}
+
+.mm {
+    position: relative;
+    left: 420px;
+}
+
+@media (max-width: 924px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box {
+        flex-basis: 400px;
+    }
+
+    button {
+        width: 100%;
+        position: relative;
+    }
+
+    input.angka {
+        width: 100%;
+        position: relative;
+    }
+
+    .container-result {
+        display: block;
+    }
+
+    .result {
+        margin-bottom: 5px;
+    }
+
+    .km, .hm, .dam, .m, .dm, .cm, .mm {
+        position: static;
+        width: 100%;
+        border-radius: 8px;
+    }
+}
