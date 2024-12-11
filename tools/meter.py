@@ -1,22 +1,25 @@
 from typing import Union, Dict
 
-data = {
-    "km": 1,
-    "hm": pow(10, 1),
-    "dam": pow(10, 2),
-    "m": pow(10, 3),
-    "dm": pow(10, 4),
-    "cm": pow(10, 5),
-    "mm": pow(10, 6)
-}
+class TabelSatuanMeter:
+    """Membuat tabel konversi untuk satuan meter"""
+    def __init__(self, angka: Union[float, int], satuan: str):
+        self.angka = angka
+        self.satuan = satuan
+        self.data = {
+            "km": 1,
+            "hm": pow(10, 1),
+            "dam": pow(10, 2),
+            "m": pow(10, 3),
+            "dm": pow(10, 4),
+            "cm": pow(10, 5),
+            "mm": pow(10, 6)
+        }
 
-def convert_to_km(satuan: str) -> int:
-    return data.get(satuan)
-
-def data_new(angka: Union[float, int], satuan: str) -> Dict[str, str]:
-    data_baru = None
-    # for k, v in data.items():
-    #     data_new = {k, v*convert_to_km(satuan)*angka}
-    return {k: v*convert_to_km(satuan)*angka for k, v in data.items()}
-
-print(data_new(12, "cm"))
+    def tabel_new(self) -> Dict[str, str]:
+        """menghasilkan tabel baru"""
+        convert_to_km = self.data.get(self.satuan)
+        return {k: str(v * convert_to_km * self.angka) for k, v in self.data.items()}
+    
+if __name__=="__main__":  
+    tt = TabelSatuanMeter(1.25, "cm").tabel_new()
+    print(tt)
