@@ -13,7 +13,7 @@
         <div class="box">
             <div class="header">
                 <input type="text" class="angka" name="" id="">
-                <button type="button" class="tombol">Tekan</button>
+                <button type="button" class="tombol show-modal">Tekan</button>
             </div>
             <div class="container-result">
                 <div class="box-result">
@@ -28,6 +28,13 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>Peringatan</h1>
+        <p>Inputan anda tidak valid karena tidak mengikuti aturan yang berlaku</p>
+        <p>Silahkan masukan angka disertai format satuan meter</p>
+        <p>angka disertai satuan meter === <span>12m atau 12 cm.</span> </p>
+    </div>
+    <div class="overlay hidden"></div>
 </body>
 </html>
