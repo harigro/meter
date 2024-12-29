@@ -38,18 +38,22 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => response.json()) // Mengubah response menjadi format JSON
         .then((data) => {
           // Menampilkan hasil ke dalam input
-          input_pengguna.value = data.greeting.m;
-          // nilai_input.forEach((n, item) => {
-          //   let nilai =
-          //     parseFloat(match[1]) *
-          //     konversi_ke_km(match[2].toLowerCase()) *
-          //     Math.pow(10, item);
-          //   n.value = cocok(nilai.toFixed(7-item-1)) + " " + n.classList[0];
-          // });
+          data_entrys = {
+            0: data.greeting.km,
+            1: data.greeting.hm,
+            2: data.greeting.dam,
+            3: data.greeting.m,
+            4: data.greeting.dm,
+            5: data.greeting.cm,
+            6: data.greeting.mm
+          }
+          nilai_input.forEach((n, item) => {
+            n.value = data_entrys[item] + " " + n.classList[0];
+          });
         })
         .catch((error) => {
           // Menampilkan error jika terjadi kesalahan
-          resultDiv.innerHTML = "<p>Terjadi kesalahan!</p>";
+          alert("Terjadi kesalahan di peladen");
         });
     } else {
       buat_modal()
