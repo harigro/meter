@@ -1,24 +1,48 @@
 import unittest
-from ..meter import TabelSatuanMeter, ValidateString
+from ..meter import TabelSatuanMeter, ValidateString, DataTabel
 
-class TestTabelSatuanMeter(unittest.TestCase):
+class TestDataTabel(unittest.TestCase):
 
     def test_kunci_tabel_meter(self):
-        tt = TabelSatuanMeter("2.5", "m").data
-        kunci = [k for k in tt.keys()]
+        tabel = DataTabel().positif
+        kunci = [k for k in tabel.keys()]
         data = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
         self.assertEqual(kunci, data)
 
+
+    def test_tabel_positif(self):
+        tabel = DataTabel().positif
+        positif = {
+            "km": 1,
+            "hm": pow(10, 1),
+            "dam": pow(10, 2),
+            "m": pow(10, 3),
+            "dm": pow(10, 4),
+            "cm": pow(10, 5),
+            "mm": pow(10, 6)
+        }
+        self.assertEqual(tabel, positif)
+
+    def test_tabel_positif(self):
+        tabel = DataTabel().negatif
+        negatif = {
+            "km": 1,
+            "hm": pow(10, -1),
+            "dam": pow(10, -2),
+            "m": pow(10, -3),
+            "dm": pow(10, -4),
+            "cm": pow(10, -5),
+            "mm": pow(10, -6)
+        }
+        self.assertEqual(tabel, negatif)
+
+class TestTabelSatuanMeter(unittest.TestCase):
+
     def test_konversi_m(self):
-        tt = TabelSatuanMeter("2.5", "m").tabel_new()
+        tt = TabelSatuanMeter("2.5", "cm").tabel_new()
         expected = {
-            'km': '2500.0',
-            'hm': '25000.0',
-            'dam': '250000.0',
-            'm': '2500000.0',
-            'dm': '25000000.0',
-            'cm': '250000000.0',
-            'mm': '2500000000.0'
+            'km': '2.5E-5', 'hm': '2.5E-4', 'dam': '2.5E-3', 
+            'm': '2.5E-2', 'dm': '2.5E-1', 'cm': '2.5E0', 'mm': '2.5E1'
         }
         self.assertEqual(tt, expected)
 
