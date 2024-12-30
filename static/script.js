@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ambil kelas modal
+  // ambil kelas modal untuk kesalahan peladen
+  const modal_peladen = document.querySelector(".modal.peladen");
+  const overlay_peladen = document.querySelector(".overlay.peladen");
+  const btnCloseModal_peladen = document.querySelector(".close-modal.peladen");
+  const closeModalPeladen = () => {
+        modal_peladen.classList.add("hidden");
+        overlay_peladen.classList.add("hidden");
+      };
+  btnCloseModal_peladen.addEventListener("click", closeModalPeladen);
+  overlay_peladen.addEventListener("click", closeModalPeladen);
+  const buat_modal_peladen = () => {
+    modal_peladen.classList.remove("hidden");
+      overlay_peladen.classList.remove("hidden");
+  }
+
+  // ambil kelas modal client
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const btnCloseModal = document.querySelector(".close-modal");
@@ -53,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((error) => {
           // Menampilkan error jika terjadi kesalahan
-          alert("Terjadi kesalahan di peladen");
+          buat_modal_peladen()
         });
     } else {
       buat_modal()
