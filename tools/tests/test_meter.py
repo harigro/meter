@@ -37,8 +37,25 @@ class TestDataTabel(unittest.TestCase):
         self.assertEqual(tabel, negatif)
 
 class TestTabelSatuanMeter(unittest.TestCase):
+    {'km': '1.2E1', 'hm': '1.2E2', 'dam': '1.2E3', 'm': '1.2E4', 'dm': '1.2E5', 'cm': '1.2E6', 'mm': '1.2E7'}
 
-    def test_konversi_m(self):
+    def test_konversi_hm(self):
+        tt = TabelSatuanMeter("120", "hm").tabel_new()
+        expected = {
+            'km': '1.2E1', 'hm': '1.2E2', 'dam': '1.2E3', 
+            'm': '1.2E4', 'dm': '1.2E5', 'cm': '1.2E6', 'mm': '1.2E7'
+        }
+        self.assertEqual(tt, expected)
+
+    def test_konversi_dm(self):
+        tt = TabelSatuanMeter("12", "dm").tabel_new()
+        expected = {
+            'km': '1.2E-3', 'hm': '1.2E-2', 'dam': '1.2E-1', 
+            'm': '1.2E0', 'dm': '1.2E1', 'cm': '1.2E2', 'mm': '1.2E3'
+        }
+        self.assertEqual(tt, expected)
+
+    def test_konversi_cm(self):
         tt = TabelSatuanMeter("2.5", "cm").tabel_new()
         expected = {
             'km': '2.5E-5', 'hm': '2.5E-4', 'dam': '2.5E-3', 

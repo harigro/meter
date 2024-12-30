@@ -52,10 +52,6 @@ class TabelSatuanMeter:
     def tabel_new(self) -> Dict[str, str]:
         """menghasilkan tabel baru"""
         n_tabel = self.data_tabel.negatif.get(self.satuan)
-        return {k: format_scientific(v * n_tabel * self.validation_string()) 
+        return {k: format_scientific(round(v * n_tabel * self.validation_string(), 10)) 
                 for k, v in self.data_tabel.positif.items()
             }
-
-if __name__=="__main__":
-    tt = TabelSatuanMeter("2.5", "cm").tabel_new()
-    print(tt)
