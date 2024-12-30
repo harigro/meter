@@ -9,11 +9,12 @@ def index():
 
 @app.route('/greet', methods=['POST'])
 def greet():
-    # nilai kembalian {'nilai': '12', 'satuan': 'cm'}
     meter = request.form.to_dict()
     tabel = TabelSatuanMeter(meter.get("nilai"), meter.get("satuan"))
     if meter:
         greeting = tabel.tabel_new()
+    else:
+        greeting = 0
     return jsonify(greeting=greeting)
 
 if __name__ == '__main__':
