@@ -16,24 +16,12 @@ class ValidateString:
 class DataTabel:
     def __init__(self):
         """Menghasilkan tabel satuan meter"""
-        self.negatif = {
-            "km": 1,
-            "hm": pow(10, -1),
-            "dam": pow(10, -2),
-            "m": pow(10, -3),
-            "dm": pow(10, -4),
-            "cm": pow(10, -5),
-            "mm": pow(10, -6)
-        }
-        self.positif = {
-            "km": 1,
-            "hm": pow(10, 1),
-            "dam": pow(10, 2),
-            "m": pow(10, 3),
-            "dm": pow(10, 4),
-            "cm": pow(10, 5),
-            "mm": pow(10, 6)
-        }
+        meter_n = [1, 1e-1, 1e-2, 1e-3,
+                   1e-4, 1e-5, 1e-6] 
+        meter_p = [1, 1e1, 1e2, 1e3,
+                   1e4, 1e5, 1e6]
+        self.negatif = dict(zip(["km", "hm", "dam", "m", "dm", "cm", "mm"], meter_n))
+        self.positif = dict(zip(["km", "hm", "dam", "m", "dm", "cm", "mm"], meter_p))
     
 class TabelSatuanMeter:
     """Membuat tabel konversi untuk satuan meter"""
@@ -52,6 +40,6 @@ class TabelSatuanMeter:
     def tabel_new(self) -> Dict[str, str]:
         """menghasilkan tabel baru"""
         n_tabel = self.data_tabel.negatif.get(self.satuan)
-        return {k: format_scientific(round(v * n_tabel * self.validation_string(), 10)) 
-                for k, v in self.data_tabel.positif.items()
-            }
+        result = map(lambda item: (item[0], format_scientific(round(item[1] * n_tabel * self.validation_string(), 10))),
+                     self.data_tabel.positif.items())
+        return dict(result)
