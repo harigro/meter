@@ -167,9 +167,23 @@ span {
     background: none;
 }
 
-/* alert("Input tidak valid!"); */
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        padding: 2rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-@media (max-width: 924px) {
+    .close-modal {
+        font-size: 2rem;
+        top: 0.8rem;
+        right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
     .container {
         display: flex;
         flex-direction: column;
