@@ -25,7 +25,7 @@ const button_click = (angkaSelector, hasilSelector, modalPeladen, modalClient) =
   const nilaiInput = document.querySelectorAll(hasilSelector);
 
   const interactivate = () => {
-    const regex = /(\d+)\s?(km|hm|dam|m|dm|cm|mm)\b/;
+    const regex = /(-?\d+((\.|\,)\d+)?)\s?(km|hm|dam|m|dm|cm|mm)\b/;
     const match = inputPengguna.value.trim().match(regex);
 
     if (match) {
@@ -35,7 +35,7 @@ const button_click = (angkaSelector, hasilSelector, modalPeladen, modalClient) =
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `nilai=${encodeURIComponent(match[1])}&satuan=${encodeURIComponent(match[2])}`})
+        body: `nilai=${encodeURIComponent(match[1])}&satuan=${encodeURIComponent(match[4])}`})
         .then((response) => response.json())
         .then((data) => {
           const dataEntry = {
